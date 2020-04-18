@@ -1,4 +1,4 @@
-# Android_Room_relationship_example
+# Android Room relationship example
 Simple to understand Android Room example of relationships
 
 
