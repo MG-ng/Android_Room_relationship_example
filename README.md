@@ -2,7 +2,7 @@
 Simple to understand Android Room example of relationships
 
 
-I made this project to learn more about the andrpod room framework. 
+I made this project to learn more about the android room framework. 
 
 I hope this project helps you too :)
 
