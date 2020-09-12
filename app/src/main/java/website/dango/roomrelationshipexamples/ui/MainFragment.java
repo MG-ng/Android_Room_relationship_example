@@ -22,6 +22,7 @@ import website.dango.roomrelationshipexamples.R;
 import website.dango.roomrelationshipexamples.pojos.Artist;
 import website.dango.roomrelationshipexamples.pojos.Playlist;
 import website.dango.roomrelationshipexamples.pojos.Song;
+import website.dango.roomrelationshipexamples.pojos.SongStatus;
 import website.dango.roomrelationshipexamples.pojos.SongWithArtists;
 import website.dango.roomrelationshipexamples.pojos.SongWithPlaylists;
 
@@ -169,7 +170,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             case R.id.saveSong:
                 Song song = new Song(
                         etSongName.getText().toString(),
-                        0
+                        0,
+                        SongStatus.online
                 );
 
                 String[] artists = etSongArtist.getText().toString().split( ", " );

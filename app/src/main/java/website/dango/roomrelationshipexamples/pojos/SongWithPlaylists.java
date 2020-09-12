@@ -16,7 +16,6 @@ public class SongWithPlaylists {
             entityColumn = "playlistName",
             associateBy = @Junction( SongPlaylistCrossRef.class )
     )
-
     public List<Playlist> playlists;
 
 }

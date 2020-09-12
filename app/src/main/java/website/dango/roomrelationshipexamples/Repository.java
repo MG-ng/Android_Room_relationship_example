@@ -37,7 +37,7 @@ public class Repository {
     private SPCrossRefDao spCrossRefDao;
     private SACrossRefDao saCrossRefDao;
 
-    private static MutableLiveData<Integer> lastUpdatedRows = new MutableLiveData<>();
+    private static MutableLiveData<List<Long>> lastUpdatedRows = new MutableLiveData<>();
 
     private LiveData<List<Song>> allSongs;
     private LiveData<List<Artist>> allArtists;
@@ -81,7 +81,9 @@ public class Repository {
         return songsWithPlaylists;
     }
 
-
+    public static LiveData<List<Long>> getLastUpdatedRows() {
+        return lastUpdatedRows;
+    }
 
     // TODO: Option 1
     public void setSongForPlaylistSearch( Song song ) {
@@ -132,16 +134,18 @@ public class Repository {
     }
 
 
-    public void deleteSongsByIds( String... names ) {
+    public void deleteSongsByNames( String... names ) {
         databaseExecutor.execute( () -> {
-            lastUpdatedRows.postValue( songDao.deleteSongById( names ) );
+            Log.w( TAG, "Number of deleted rows: " + songDao.deleteSongById( names ) );
         } );
     }
 
 
     public void insertSongs( Song... songs ) {
         databaseExecutor.execute( () -> {
-            Log.w( TAG, "Insert Song(s): " + songs.length + songDao.insert( songs ) );
+            List<Long> insertIds = songDao.insert( songs );
+            Log.w( TAG, "Insert Song(s): " + insertIds.toString() );
+            lastUpdatedRows.postValue( insertIds );
         } );
     }
 
