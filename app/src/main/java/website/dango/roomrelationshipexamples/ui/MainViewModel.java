@@ -38,7 +38,6 @@ public class MainViewModel extends AndroidViewModel {
 
         repo = Repository.getInstance( application );
 
-
         allPlaylists = repo.getAllPlaylists();
         allSongs = repo.getAllSongs();
     }

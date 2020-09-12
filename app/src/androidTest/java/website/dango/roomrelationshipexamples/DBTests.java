@@ -66,5 +66,4 @@ public class DBTests {
             Log.e( TAG, "No updated Rows yet" );
     }
 
-
 }
